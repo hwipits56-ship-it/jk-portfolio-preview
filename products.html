@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Products — 김재경</title>
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="case.css">
+<style>
+/* ============================================================
+   Products — 덩어리 쪽 (2026-09-22 · 토스 테크 결로 글을 다시 씀)
+     🆕 2026-09-23 : 본문을 toss.tech 글 문법으로 — 해요체 · 첫 문단이 이야기를 예고 · 문단 끝이 다음 문단을 부른다
+        정본 = toss.tech/article/remittance_transfer. ⛔ 속마음·배운 점은 사용자가 말한 것만(게임 기획을 그만둔 이유)
+     담당자가 이 쪽에서 확인하는 것 = ① 혼자 끝까지 했나 ② 화면이 완성됐나 ③ 얼마나 빨리 내나 ④ 무엇을 만들었나
+     소제목은 컨셉 문장(토스 테크 꼴), 사실과 숫자는 본문에서만. 기준 = ~/.claude/skills/portfolio-tone
+     재서 고친 이야기는 Before & After 가 맡는다(여기서 하지 않는다)
+     ④ 는 흩뿌린 모음(.field) — 상자·링크·갈래 머리 없이 스물두 장, 올리면 이름만
+     글 = drafts/v7-toss.md · 판 = cards/pr-loop.html · cards/pr-timeline.html(검정 카드) · 앱 화면은 shots/apps 에서 사용자가 고른 것
+   ============================================================ */
+
+/* 맨 위 결과 한 줄 · 6초 안에 읽히는 자리 */
+.result{font-size:19px;font-weight:600;line-height:1.5;letter-spacing:-.03em;color:#212121;padding:0 0 28px}
+
+/* 스물두 개 · 흩뿌린 모음 (2026-09-23)
+   상자도 링크도 갈래 머리도 없다. 칸마다 위아래로 조금씩 어긋나고 살짝 기울어 «모아 둔 것»이 아니라 «흩어 둔 것»으로 읽힌다.
+   🚨 좌우는 글·판과 같은 기둥에 맞춘다. 여기만 넓히면 쪽에서 이 덩이만 따로 논다 */
+.field{margin:40px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:30px 14px;padding:0 0 34px}
+.field figure{position:relative;margin:0;transform:translateY(var(--dy)) rotate(var(--r));
+  transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.field img{width:100%;height:auto;display:block;background:#fff;
+  box-shadow:0 10px 30px -20px rgba(0,0,0,.5);transition:box-shadow .5s ease}
+.field figure:nth-child(4n+1){--dy:0px;--r:-.8deg}
+.field figure:nth-child(4n+2){--dy:18px;--r:.6deg}
+.field figure:nth-child(4n+3){--dy:6px;--r:-.5deg}
+.field figure:nth-child(4n+4){--dy:22px;--r:.8deg}
+.field figcaption{position:absolute;left:50%;bottom:-8px;transform:translate(-50%,8px);
+  font-size:11px;font-weight:600;color:#fff;background:#111;padding:4px 9px;white-space:nowrap;letter-spacing:normal;
+  opacity:0;transition:opacity .3s ease,transform .3s ease;pointer-events:none}
+.field figure:hover{transform:translateY(calc(var(--dy) - 8px)) rotate(0deg) scale(1.04);z-index:2}
+.field figure:hover img{box-shadow:0 22px 44px -22px rgba(0,0,0,.6)}
+.field figure:hover figcaption{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){
+  .field figure,.field img,.field figcaption{transition:none}
+  .field figure:hover{transform:translateY(var(--dy)) rotate(var(--r))}
+}
+
+@media (max-width:1023px){
+  .result{font-size:18px;padding-bottom:16px}
+  /* 폰 · 어긋남과 기울기를 빼고 이름을 그림 아래에 늘 둔다. 어긋난 채로 이름을 띄우면 다음 줄 그림에 가려진다 */
+  .field{grid-template-columns:repeat(3,1fr);gap:22px 12px;width:100%;margin-top:28px}   /* 100vw 를 쓰면 기둥보다 넓어져 오른쪽으로 삐져나간다 */
+  .field figure:nth-child(n){--dy:0px;--r:0deg}   /* nth-child 규칙(0,2,0)보다 약하면 안 먹는다 — 같은 무게로 뒤에 둔다 */
+  .field figcaption{position:static;transform:none;opacity:1;background:none;color:var(--ink);
+    font-size:10px;font-weight:600;padding:7px 0 0;text-align:center;white-space:normal}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./">Home</a>
+  <a href="archive.html">Archive</a>
+  <a href="about.html">About</a>
+</nav>
+
+<div class="wrap">
+
+  <h1>Products</h1>
+
+  <p class="result">코드를 모르던 기획자가 90일에 앱 스물두 개를 낸 방법</p>
+
+  <p class="bg">
+    코드를 몰랐던 기획자가 90일 동안 토스에 앱 스물두 개를 내기까지,
+    무엇을 혼자 했고, 무엇을 먼저 정했고, 무엇을 기계에 맡겼는지 이야기해 보려고 해요.
+  </p>
+
+
+  <!-- ═══════ ① 혼자 끝까지 ═══════ -->
+  <section class="sec">
+    <h2>기획자 한 명이 디자이너와 개발자와 운영자를 겸하게 된다면</h2>
+    <p>게임 회사에서 퀘스트를 기획했어요. 한 편을 만드는 데 오래 걸리다 보니 여러 번 시도하고 고치기가 어려웠고, 만든 게 사람에게 닿는 모습을 보기도 어려웠어요.
+    그래서 작은 것을 여럿, 빨리, 직접 내 보기로 했어요.</p>
+    <p>문제는 제가 코드를 몰랐다는 거예요. 넘겨받을 개발자도 디자이너도 없었고요.
+    그래서 기획하고, 화면을 그리고, 코드를 쓰고, 스토어에 등록하고, 광고와 알림을 붙이고, 낸 뒤에 숫자를 보는 일까지 전부 혼자 하기로 했죠.</p>
+    <p>해 보니 좋은 점이 하나 있었어요. 중간에 넘길 사람이 없으니, 기획할 때 정한 의도가 화면과 광고 자리까지 그대로 가더라고요.
+    그렇게 앱을 낼 때마다 도는 걸음이 일곱 개로 굳었어요.</p>
+  </section>
+
+  <div class="plate baked">
+    <img src="shots/plates/v7/pr-loop.webp" alt="기획에서 측정까지 일곱 걸음">
+  </div>
+  <p class="cap">문제를 정하는 일에서 숫자를 보는 일까지 일곱 걸음이에요. 걸음마다 무엇이 대신 하는지는 <a href="howiship.html">How I Ship</a>에 적었어요</p>
+
+  <!-- ═══════ ② 감성이 먼저 ═══════ -->
+  <section class="sec">
+    <h2>앱마다 감성을 먼저 정하고 화면을 나중에 그린 순서</h2>
+    <p>그런데 같은 걸음으로 앱을 여럿 내다 보면, 앱들이 다 비슷해 보일 수 있어요.
+    그래서 화면을 그리기 전에 이 앱을 여는 사람이 어떤 기분이어야 하는지부터 정했어요.</p>
+    <p>사주와 별자리는 이미 캐주얼한 앱이 많았어요. 그래서 더 깊은 풀이와 진중한 결로 갔고, 그림체는 20대 여성이 좋아할 쪽으로 잡았어요.
+    부적과 퍼즐은 그림이 주인공이라 책처럼 넘기는 레이아웃과 수채 그림을 썼고요.
+    조용한 앱 여섯은 반대로 틀에서 색을 빼서, 자기 감정과 마주하게 했어요. 30초 에세이는 가볍게, 한 방향으로만 흐르게 만들었죠.</p>
+    <p>그림은 앱마다 뽑되 그대로 넣지 않고 그 앱의 자리에 맞춰 손봤어요.
+    같은 「하루 한 번」이어도 여는 사람이 다르면 무게가 달라야 다시 온다고 봤거든요.</p>
+  </section>
+
+  <div class="plate shot four">
+    <div class="row">
+      <img src="shots/plates/v6/pr-app-07.webp" alt="천기 첫 화면">
+      <img src="shots/plates/v6/pr-app-02.webp" alt="묘한 소원 결과 화면">
+      <img src="shots/plates/v6/pr-app-08.webp" alt="낱말 판">
+      <img src="shots/plates/v6/pr-app-19.webp" alt="질문과 생각들 첫 화면">
+    </div>
+  </div>
+  <p class="cap">왼쪽부터 천기, 묘한 소원, 낱말, 질문과 생각들이에요. 어떤 그림체로 뽑아 어디에 넣었는지는 <a href="artmotion.html">Art &amp; Motion</a>에 적었어요</p>
+
+  <!-- ═══════ ③ 하루에 하나 ═══════ -->
+  <section class="sec">
+    <h2>앱 하나가 하루 만에 나오는 제작 파이프라인</h2>
+    <p>앱마다 결을 새로 정하면 느려질 것 같지만, 실제로는 뒤로 갈수록 빨라졌어요.
+    6월에 둘이 나갔고, 7월에 셋, 8월에 열하나, 9월에 여섯이 나갔어요.</p>
+    <p>되풀이되는 일을 사람이 하지 않았기 때문이에요. 새 앱의 뼈대는 직접 만든 스킬로 찍어 내고, 콘솔 등록과 광고 배선과 검수 요청은 MCP로 돌렸어요.
+    뼈대와 배선이 굳을수록 한 앱에 드는 날이 줄었고, 8월 11일에는 하루에 다섯 개가 나갔죠.
+    어떻게 돌리는지는 <a href="howiship.html">How I Ship</a>에 자세히 적었어요.</p>
+  </section>
+
+  <!-- ═══════ ④ 카탈로그 ═══════ -->
+  <section class="sec">
+    <h2>스물두 개의 앱, 스물두 개의 이야기</h2>
+    <p>그렇다고 빨리 내는 게 목표는 아니었어요. 어느 앱이든 이야기와 세계관을 먼저 정했어요.
+    부적은 세계관 47종 가운데서 하루 한 장을 받고, 할머니와 스도쿠는 한 판을 풀 때마다 할머니 이야기가 한 조각씩 열려요.
+    햄스터 스도쿠에서는 햄스터가 옆에서 참견하고요. 누비에서 하루를 천에 짜 넣던 경험이 여기까지 왔어요.</p>
+    <p>그렇게 모인 앱은 다섯 갈래예요. 부적을 받고, 운세를 읽고, 퍼즐을 풀고, 글을 읽고 쓰고, 조용히 하나만 하는 앱이죠.</p>
+    <p>9월 21일까지 스물두 개가 나갔고, 9월 15일까지 2,942명이 처음 열었어요.
+    아래는 그 스물두 개의 첫인상이에요. 그림에 올리면 이름이 떠요.</p>
+  </section>
+
+  <div class="field" aria-label="토스에 나간 앱 스물두 개">
+    <figure><img src="shots/plates/v6/pr-app-01.webp" alt="오늘의 부적"><figcaption>오늘의 부적</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-02.webp" alt="묘한 소원"><figcaption>묘한 소원</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-03.webp" alt="직장인부적 95"><figcaption>직장인부적 95</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-04.webp" alt="하루사주"><figcaption>하루사주</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-05.webp" alt="오늘의 별자리"><figcaption>오늘의 별자리</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-06.webp" alt="EPHEMERIS"><figcaption>EPHEMERIS</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-07.webp" alt="천기"><figcaption>천기</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-08.webp" alt="낱말"><figcaption>낱말</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-09.webp" alt="핑"><figcaption>핑</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-10.webp" alt="햄스터 스도쿠"><figcaption>햄스터 스도쿠</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-11.webp" alt="할머니와 스도쿠"><figcaption>할머니와 스도쿠</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-12.webp" alt="계절 조각"><figcaption>계절 조각</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-13.webp" alt="논어 하루 한 구절"><figcaption>논어 하루 한 구절</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-14.webp" alt="108"><figcaption>108</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-15.webp" alt="생각의 방"><figcaption>생각의 방</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-16.webp" alt="소복"><figcaption>소복</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-22.webp" alt="30초 에세이"><figcaption>30초 에세이</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-17.webp" alt="오늘의 꽃갈피"><figcaption>오늘의 꽃갈피</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-18.webp" alt="날씨와 문장"><figcaption>날씨와 문장</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-19.webp" alt="질문과 생각들"><figcaption>질문과 생각들</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-20.webp" alt="고민 다이얼"><figcaption>고민 다이얼</figcaption></figure>
+    <figure><img src="shots/plates/v6/pr-app-21.webp" alt="하루 질문"><figcaption>하루 질문</figcaption></figure>
+  </div>
+
+  <!-- ═══════ 맺음 · 2026-09-23 (근거 = story/decisions.md) ═══════ -->
+  <section class="sec">
+    <h2>만드는 일보다 내보내는 일</h2>
+    <p>첫 두 앱을 낸 날 알게 된 게 있어요. 만드는 일보다 등록, 검수, 광고 배선, 프로모션처럼 내보내는 일에 손이 더 든다는 거예요.
+    스물두 개를 내는 동안 그 일을 하나씩 도구로 옮겼어요.</p>
+    <p>비어 있는 자리도 찾았어요. 8월 19일, 한 앱에 푸시로 들어온 사람이 32명 찍힌 날이 있었어요. 그런데 콘솔을 보니 우리가 보낸 알림은 없었고, 알림에 동의한 사람도 0명이었어요.</p>
+    <p>사람을 다시 데려오는 가장 큰 길이 앱 푸시인데, 그 길이 비어 있었던 거예요.</p>
+    <p>그래서 다음 할 일을 새 앱보다 알림 동의로 정했어요.</p>
+  </section>
+
+  <!-- ═══════ 크레딧 ═══════ -->
+  <dl class="credit">
+    <div><dt>Planning &middot; Design &middot; Development</dt><dd>* 김재경</dd></div>
+    <div><dt>Platform</dt><dd>Toss Mini Apps</dd></div>
+    <div><dt>Output</dt><dd>22 apps shipped &middot; 2026.06 &ndash; 2026.09</dd></div>
+  </dl>
+
+  <a class="prev" href="beforeafter.html"><span>Before &amp; After</span>낸 뒤에 잰 숫자로 다음 앱을 다시 설계하기</a>
+
+</div>
+
+</body>
+</html>

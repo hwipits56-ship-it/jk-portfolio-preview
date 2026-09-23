@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Art &amp; Motion — 김재경</title>
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="case.css">
+<style>
+/* ============================================================
+   Art & Motion — 덩어리 쪽 (2026-09-22 · 토스 테크 결로 글을 다시 씀)
+     담당자가 확인하는 것 = 이미지를 의도로 다루나, AI 결과를 제품에 넣을 수준으로 만드나
+     절 여섯 = 무게 기준 · 후가공 · 세계관 · 게임 장치 · 앱 밖으로 · 버린 안
+     ⛔ 안 잰 것을 쓰지 않는다(옛 판에 「시선이 화면 밖을 본다」 「표정만 바꿔 뽑았다」가 있었다)
+     🆕 2026-09-23 : 본문을 toss.tech 글 문법으로. 해요체 · 첫 문단이 이야기를 예고 · 문단 끝이 다음 문단을 부른다
+        정본 = toss.tech/article/remittance_transfer. ⛔ 속마음·배운 점은 사용자가 말한 것만
+     글 = drafts/v7-toss.md · 근거 = story/decisions.md · story/archive-notion.md
+   ============================================================ */
+.result{font-size:19px;font-weight:600;line-height:1.5;letter-spacing:-.03em;padding:0 0 28px}
+@media (max-width:1023px){ .result{font-size:18px;padding-bottom:16px} }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./">Home</a>
+  <a href="archive.html">Archive</a>
+  <a href="about.html">About</a>
+</nav>
+
+<div class="wrap">
+
+  <h1>Art &amp; Motion</h1>
+
+  <p class="result">AI에게 그림을 맡기면 앱의 감성은 누가 지킬까요?</p>
+
+  <p class="bg">
+    2024년에 Midjourney와 Runway로 만든 영상으로 한국관광공사 실감관광콘텐츠 공모전에서 우수상을 받았어요. 그 뒤로 그림 안에 이야기를 넣는 쪽으로 왔어요.
+    이번에는 AI로 뽑은 그림을 앱에 넣으면서, 누구에게 가는 앱인지로 그림의 무게를 정하고, 뽑은 그림을 손질하고, 그 위에 이야기를 붙인 과정을 이야기해 보려고 해요.
+  </p>
+
+
+  <div class="plate baked">
+    <img src="shots/plates/ill4-lead.webp" alt="앱에 들어간 그림 여러 장">
+  </div>
+  <p class="cap">앱에 들어간 그림이에요. 앱이 주는 것이 다르면 그림체도 달라요</p>
+
+  <!-- ═══════ ① 무게 기준 ═══════ -->
+  <section class="sec">
+    <h2>여는 사람이 누구냐에 따라 그림의 무게를 바꾼 기준</h2>
+    <p>같은 「하루 한 번」 앱이라도 여는 사람이 다르면 기대하는 게 달라요. 그래서 앱마다 무드와 스타일과 무게를 바꿨어요.</p>
+    <p>부적은 밝고 재미있게, 사주와 별자리는 무겁고 감성적으로 갔어요. 퍼즐과 스도쿠는 적당히 진중하게, 햄스터는 웃기게 갔고요.</p>
+  </section>
+
+  <div class="plate baked">
+    <img src="shots/plates/ill4-serious.webp" alt="무겁게 둔 그림">
+  </div>
+  <p class="cap">무겁게. 사주와 별자리와 철학</p>
+
+  <div class="plate baked">
+    <img src="shots/plates/ill4-warm.webp" alt="붓 자국이 남는 그림">
+  </div>
+  <p class="cap">붓 자국. 소원과 할머니</p>
+
+  <div class="plate baked">
+    <img src="shots/plates/ill4-photo.webp" alt="사진처럼 뽑은 그림">
+  </div>
+  <p class="cap">사진처럼. 농담과 꽃. 그림체를 넷으로 가른 기준은 <a href="illust.html">그림</a>에 적었어요</p>
+
+  <!-- ═══════ ② 후가공 ═══════ -->
+  <section class="sec">
+    <h2>AI가 뽑은 그림을 그대로 넣지 않는 세 가지 손질</h2>
+    <p>무게를 정한 뒤에도, 뽑은 그림을 그대로 넣지는 않았어요. 앱 안의 자리에 맞게 세 가지를 손봤어요.</p>
+    <p>첫째, 식물 24종은 256도트로 바꾸는 도구를 만들어 옮겼어요.
+    둘째, 피어나야 하는 꽃은 꽃잎과 꽃술을 따로 뽑았어요. 그걸 코드로 조립해 움직이게 했죠.
+    셋째, 종이결 때문에 회색 네모가 남던 캐릭터는 배경을 지워 스티커처럼 만들었어요. 색감도 앱 안의 자리에 맞춰 다시 맞췄고요.</p>
+  </section>
+
+  <div class="plate baked">
+    <img src="shots/plates/v7/am-dot.webp" alt="사진을 격자 위 도트로 바꾸는 에디터">
+  </div>
+  <p class="cap">도트로 바꾸는 에디터를 직접 만들어 식물 24종을 옮겼어요. 사진을 끌어다 넣고 바탕·강조·보조 세 색을 찍으면, 격자 위 점으로 바뀌어요</p>
+
+  <div class="plate baked">
+    <img src="shots/plates/v7/am-flower.webp" alt="꽃잎과 꽃술을 값으로 조립하는 판">
+  </div>
+  <p class="cap">꽃잎과 꽃술을 따로 뽑아 코드로 조립했어요. 꽃잎 수와 길이와 휨을 왼쪽 값으로 돌리면, 오른쪽에서 곧바로 다시 그려져요. 그래야 피어나거든요</p>
+
+  <div class="plate baked">
+    <img src="shots/plates/ill4-charm.webp" alt="원본과 앱에 들어간 판을 나란히">
+  </div>
+  <p class="cap">뽑은 그림과 앱에 들어간 판이에요</p>
+
+  <!-- ═══════ ③ 세계관 ═══════ -->
+  <section class="sec">
+    <h2>그림 한 장에 세계관을 붙여 앱을 이야기로 만들기</h2>
+    <p>그림이 장식으로 끝나지 않고, 그 앱에 오는 이유가 되게 하고 싶었어요. 그래서 그림마다 이야기를 붙였어요.</p>
+    <p>부적은 세계관 47종 가운데서 매일 다른 세계의 부적을 받아요. 할머니와 스도쿠는 한 판을 풀 때마다 할머니 이야기가 한 조각씩 열리고요.
+    30초 에세이는 글 한 편에 과일 부적 하나가 붙어요.</p>
+  </section>
+
+  <div class="plate baked">
+    <picture><source media="(max-width:640px)" srcset="shots/plates/charm-plan-a-m.png"><img src="shots/plates/charm-plan-a.webp" alt="오늘의 부적 그림 넷과 화면 넷"></picture>
+  </div>
+  <p class="cap">오늘의 부적이에요. 위는 세계관 넷(고양이 왕자, 햄스터 여름방학, 재즈와 여우, 한국의 신비한 존재들), 아래는 받는 순서예요. 세 앱의 세계관은 <a href="charm.html">부적</a>에 적었어요</p>
+
+  <div class="plate shot">
+    <div class="row">
+      <img src="shots/puzzle/live/gr-tale.png" alt="한 판을 풀면 열리는 할머니 이야기">
+      <img src="shots/essay/home.png" alt="글 한 편에 붙은 과일 부적">
+    </div>
+  </div>
+  <p class="cap">왼쪽은 할머니와 스도쿠에서 한 판을 풀면 열리는 이야기, 오른쪽은 30초 에세이의 과일 부적이에요</p>
+
+  <!-- ═══════ ④ 게임 장치 ═══════ -->
+  <section class="sec">
+    <h2>게임 기획자가 미니앱에 게임의 장치를 옮긴 방법</h2>
+    <p>이야기를 붙이는 방식은 전에 하던 일에서 왔어요. 게임 회사에서 퀘스트 시스템을 기획했고, 그 전에는 소설을 썼거든요. 그 방식을 미니앱에 그대로 옮겼어요.</p>
+    <p>낱말에는 남은 횟수를 보여 주는 상태줄을 넣었어요. 부적에는 도감과 매일 도는 컨셉을, 스도쿠 둘에는 한 판을 풀면 열리는 이야기와 옆에서 참견하는 햄스터를 넣었고요.
+    마음 한컵은 조각을 떨어뜨리면 물리로 쌓이는 컵이에요.</p>
+  </section>
+
+  <div class="plate baked">
+    <img src="shots/plates/v7/am-game.webp" alt="상태줄, 도감, 이야기, 쌓이는 컵 네 화면">
+  </div>
+  <p class="cap">왼쪽부터 낱말의 상태줄, 부적의 도감, 햄스터 스도쿠, 마음 한컵이에요</p>
+
+  <!-- ═══════ ⑤ 앱 밖으로 ═══════ -->
+  <section class="sec">
+    <h2>앱에서 통한 그림체를 릴스와 카드로 넓힌 이야기</h2>
+    <p>앱 안에서 통한 그림체는 앱 밖으로도 가져갔어요. 한 스타일이 통하면 다른 곳에도 넓게 써 보고, 그 결과를 계정에서 봐요.</p>
+    <p>릴스 열두 편 가운데 일곱은 앱에 쓴 그림을 그대로 옮긴 거예요. 인스타그램 카드에도 같은 연작을 썼어요.</p>
+  </section>
+
+  <div class="plate films">
+    <div class="row">
+      <video src="shots/reels/rain.mp4" muted loop autoplay playsinline></video>
+      <video src="shots/reels/jangma.mp4" muted loop autoplay playsinline></video>
+      <video src="shots/reels/fish.mp4" muted loop autoplay playsinline></video>
+    </div>
+  </div>
+  <p class="cap">앱 그림을 옮겨 만든 릴스예요. 열두 편은 <a href="reels.html">릴스</a>에 모았어요</p>
+
+  <div class="plate baked">
+    <img src="shots/plates/ill3-insta-card.webp" alt="같은 연작으로 만든 인스타그램 카드">
+  </div>
+  <p class="cap">같은 연작을 인스타그램 카드에도 썼어요. 열두 편은 <a href="carousel.html">인스타그램 카드</a>에 모았어요</p>
+
+  <!-- ═══════ ⑥ 버린 안 ═══════ -->
+  <section class="sec">
+    <h2>일곱 번 다시 그린 끝에 남은 검은 고양이</h2>
+    <p>물론 처음부터 맞는 그림이 나오지는 않았어요. 채널 캐릭터가 그랬죠.</p>
+    <p>강아지 인간, 안경 쓴 청년, 할아버지, 고양이 마술사, 곰, 여우, 진돗개를 거쳐, 앞치마 두른 검은 고양이로 정했어요.
+    그림체도 낙서와 수채와 플랫과 로파이를 거쳐 흑백 선으로 왔고요.</p>
+    <p>앱에 넣은 뒤에도 자리에 안 맞으면 다시 뽑아요.</p>
+  </section>
+
+  <div class="plate baked">
+    <img src="shots/plates/brand-reels.webp" alt="채널 캐릭터 후보와 최종안">
+  </div>
+  <p class="cap">일곱 번 바꾼 끝에 남은 하나예요</p>
+
+  <!-- ═══════ 맺음 · 2026-09-23 (근거 = story/decisions.md) ═══════ -->
+  <section class="sec">
+    <h2>그림을 가려도 알아보는 앱</h2>
+    <p>9월에는 앱들을 브랜드 셋으로 묶었어요. 글만 있는 쪽, 동화와 종이, 사진과 매트예요.</p>
+    <p>이때 기준을 하나 세웠어요. 그림을 가려도 3초 안에 셋이 구분돼야 브랜드라고요.</p>
+    <p>그래서 브랜드마다 화면 구조 하나, 말투 하나, 그림을 놓는 자리 규칙 하나를 정했어요.
+    앱마다 그림의 무게를 고르던 기준이, 그림 밖으로 넓어진 셈이에요.</p>
+  </section>
+
+  <!-- ═══════ 크레딧 ═══════ -->
+  <dl class="credit">
+    <dt>Art Direction · Production</dt><dd>김재경</dd>
+    <dt>Output</dt><dd>앱 그림 · 릴스 12편 · 인스타그램 카드 12편 · 채널 캐릭터</dd>
+  </dl>
+
+  <a class="prev" href="products.html"><span>Products</span>코드를 모르던 기획자가 90일에 앱 스물두 개를 낸 방법</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+/* ============================================================
+   v3 프로젝트 상세 · jayyoungjun-kim.github.io/29cm-gift-curation.html 실측
+
+   🚨🚨 어미가 «다체»다. About 은 「~합니다」, 프로젝트 상세는 「~다」로 갈라 놨다.
+        About 은 «내가 말하는 자리», 프로젝트는 «사실을 적는 자리»라서 그렇다.
+        ⛔ 한 장 안에서 어미를 섞지 말 것 (전에 결론만 다체, 본문은 습니다체로 섞여 있었다)
+   🚨 본문에 굵게·색·이모지가 «하나도» 없다. 강조는 «결론 한 문장»이 대신한다
+   🚨 한글 문단마다 «영문 쌍둥이». 프로젝트 상세의 영문은 About 과 달리
+      회색이 아니라 «같은 검정»이고 크기도 같다 (15px/400 · 줄높이 22.5)
+   🚨 구획 라벨은 «기능 이름»이다. ⛔「결정 01/02/03」 같은 번호가 아니다
+   ⛔ 따옴표는 ‘ ’ 를 쓴다 (Jay 는 ‘대상’ ‘상황’ ‘취향’)
+
+   실측 눈금 (1200 화면)
+     글 상자   x200 w800 «가운데 정렬» (홈·About 과 달리 가운데다)
+     제목      72px/500 · 줄높이 1.2 · 자간 −1px
+     메타      2열 격자 · dt 16px/500 · dd 14px/400
+     라벨      13px/500 · 아래 4      (회색 아님)
+     결론 h2   20px/600 · 줄높이 1.5 · 아래 24
+     한글      15px/500 · 줄높이 1.8 · 아래 16
+     영문      15px/400 · 줄높이 1.5 · 아래 0
+     ⛔ 이 넷 사이 margin 은 전부 0. 여백은 padding-bottom 이 만든다
+     ⛔ 자간은 제목 말고 전부 normal
+   ============================================================ */
+:root{
+  --paper:#fff; --ink:#212121; --ink2:#555; --ink3:#777; --ink4:#c4c4c4;
+  --line:#e3e3e3; --plate:#f6f6f6; --draw:#9a9a9a;
+  --font:'Pretendard Variable',Pretendard,-apple-system,'Malgun Gothic',sans-serif;   /* 레퍼런스와 같은 글꼴 (09-17 · 옛 Wanted Sans) */
+  --nav:42px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--font);
+  font-size:15px;font-weight:500;line-height:1.8;
+  word-break:keep-all;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding-top:var(--nav);
+}
+img{display:block;max-width:100%}
+a{color:#000;text-decoration:none}
+a:hover{color:#777}
+::selection{background:var(--ink);color:var(--paper)}
+
+nav{
+  position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:20;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  background:var(--paper);border:1px solid #444;
+}
+nav a{display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:500;line-height:1.8;letter-spacing:.02em;text-transform:uppercase;color:#000}
+nav a + a{border-left:1px solid #444}
+nav a:hover{color:#000}
+
+/* ============================================================
+   크기 자동조정 = 레퍼런스 방식 (2026-09-17 · jayyoungjun-kim.github.io/css/style.css 실측)
+   🚨 «1024px 한 자리»에서 폰판과 데스크톱판이 통째로 갈린다. 그 아래는 갈린 값 그대로 고정.
+      🆕 2026-09-23 : 토스 테크(toss.tech/article/*)에 맞췄다 — 글도 판도 «700px 한 기둥», 글자는 창 폭을 안 따른다.
+         본문 18 · 절 제목 30 · 제목 48 · 캡션 14 고정(토스는 본문 17 · 절 제목 30 · 제목 48).
+         ⛔ clamp 로 되돌리지 말 것. 「우리가 작다」던 지적의 진짜 원인은 크롬의 «사이트별 확대 배율»이었다
+            (우리 쪽만 50%로 줄어 있었다. CSS 값으로는 우리가 더 컸다)
+   🚨 글과 판의 폭이 다르다. 글은 800 가운데, 판은 좌우 80 을 두고 최대 1400 까지 넓어진다.
+      ⛔ 예전엔 판도 800 칸 안에 가둬서 1920 에서 레퍼런스 그림의 57% 크기였다
+   데스크톱(1024 이상) : 좌우 80 · 제목 72 · 첫머리 15 · 절 제목 20 · 본문 15
+   폰(1023 이하)       : 좌우 24 · 제목 32 · 첫머리 14 · 절 제목 16 · 본문 14 · 영문 13 회색
+   ============================================================ */
+.wrap{max-width:688px;margin:0 auto;padding:0 64px 64px}   /* 아래 80 = 레퍼런스 contents 아래 여백 · 속폭 최대 1600 (레퍼런스는 1400 인데, 판이 커져야 화면이 읽혀서 200 넓혔다) */
+/* ⛔ 글과 판의 폭을 다르게 두지 말 것 — 글만 좁으면 판과 좌우가 안 맞아 «섬»처럼 뜬다(2026-09-23 지적).
+   토스 테크도 글과 그림이 같은 700 한 기둥이다. 우리는 판 안에 화면이 여럿이라 1000 으로 두었다 */
+.plate:not(.baked) > svg{max-width:100%}   /* 도해 글씨가 판 폭을 따라 부풀지 않게 */
+
+h1{margin-top:96px;font-size:38px;font-weight:500;line-height:1.2;letter-spacing:-1px;
+   padding-bottom:24px}
+
+/* 배경 문단 : 한글 15/500 → 영문 15/400. 사이 간격 0 */
+.bg{font-size:15px;font-weight:500;line-height:1.75;padding-bottom:13px}
+.bg.en{font-weight:400;line-height:1.5;padding-bottom:40px}
+
+/* 메타 2열 격자 */
+.bg:not(.en) + .facts{margin-top:24px}   /* 영문 없는 쪽 : 한글 16 + 24 = 40 */
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:0 32px}
+.facts dt{font-size:14px;font-weight:500;line-height:1.7}
+.facts dd{font-size:12px;font-weight:400;line-height:1.7;padding-bottom:16px}
+
+/* 회색 판 + 도해 */
+.plate{margin-top:77px;background:var(--plate);border-radius:0;padding:51px 45px}   /* 레퍼런스 : 모서리 없음 */
+/* 레퍼런스 간격 : 메타 뒤 판 130 · 판 뒤 글 56 · 글 뒤 판 200 · 판과 판 40 · 글과 글 256 · 메타 뒤 글 226 */
+.facts + .plate{margin-top:88px}
+.plate + .plate{margin-top:20px}
+.plate + .facts{margin-top:45px}
+.cap{font-size:12px;font-weight:400;color:var(--ink3);text-align:left;
+  line-height:1.7;padding:14px 0 0}
+.cap + .plate{margin-top:24px}   /* 캡션 뒤에 판이 바로 오면 판끼리 붙은 간격으로 */
+.cap + .sec{margin-top:96px}
+.cap a{color:var(--ink3);text-decoration:underline;text-underline-offset:3px}
+.cap a:hover{color:#000}
+.plate svg{width:100%;height:auto;overflow:visible;display:block}
+.plate svg text{font-family:var(--font);font-size:11px;fill:var(--ink3);font-weight:400}
+.plate svg text.big{font-size:19px;fill:var(--ink);font-weight:700}
+.plate svg .l{fill:none;stroke:var(--draw);stroke-width:1}
+.plate svg .d{fill:none;stroke:var(--draw);stroke-width:1;stroke-dasharray:3 3}
+.plate.baked{padding:0;overflow:hidden}
+.plate.baked img{width:100%;height:auto;display:block}
+.plate.baked video{width:100%;height:auto;display:block}
+/* 세로 영상 여럿을 나란히. 🚨 min-width:0 이 없으면 좁은 화면에서 안 줄어든다 */
+.plate.films{padding:44px}
+.plate.films .row{display:flex;gap:20px;justify-content:center;align-items:flex-start}
+/* 셋이 줄을 나눠 갖고 240 에서 멈춘다 — 예전엔 820 이하에서 100px 고정이라 태블릿에서 쪼그라들었다 */
+.plate.films video{flex:1 1 0;width:auto;max-width:240px;min-width:0;height:auto;border-radius:10px;display:block;
+  box-shadow:0 6px 22px rgba(0,0,0,.10)}
+.plate.films.one video{flex:0 1 300px;max-width:300px}
+.plate.shot{padding:44px}
+.plate.shot .row{display:flex;gap:26px;justify-content:center}
+.plate.shot.four{padding:36px 32px}
+.plate.shot.four .row{gap:14px}
+.plate.shot img{flex:1 1 0;width:auto;max-width:236px;height:auto;min-width:0;border-radius:14px;   /* min-width:0 이 없으면 좁은 화면에서 안 줄어든다 */
+  box-shadow:0 6px 30px -18px rgba(0,0,0,.4), 0 0 0 .5px rgba(0,0,0,.06)}
+
+/* 구획 : 라벨 → 결론 → 한글 → 영문. 사이 margin 전부 0 */
+.sec{margin-top:96px}
+/* 🚨 2026-09-23 간격을 뒤집었다. 옛 값(글 뒤 판 120 · 판 뒤 다음 절 45)은 판이 «다음 절» 에 붙어 읽혔다.
+   toss.tech 실측 = 문단 사이 32 · 글 뒤 그림 32 · 절 사이 80~144. 그림은 «자기 글» 에 붙고 절끼리 멀다.
+   우리는 본문 15(토스 17)라 0.8 배 : 문단 사이 20 · 글 뒤 판 28 · 절 사이 96 */
+.plate + .sec{margin-top:96px}
+.facts + .sec{margin-top:96px}
+.bg + .sec{margin-top:88px}
+.bg + .plate{margin-top:48px}
+.sec + .plate{margin-top:28px}
+.sec .k{font-size:12px;font-weight:500;line-height:1.7;padding-bottom:4px}
+.sec h2{font-size:24px;font-weight:600;line-height:1.5;letter-spacing:normal;padding-bottom:19px}
+.sec p{font-size:15px;font-weight:500;line-height:1.75;padding-bottom:0}
+.sec p + p:not(.en){margin-top:20px}
+.sec p.en{font-weight:400;line-height:1.5;padding-bottom:0}
+
+.credit{margin-top:128px;display:grid;grid-template-columns:repeat(2,1fr);gap:0 32px}   /* 레퍼런스 stakeholder : 선 없음 */
+.credit dt{font-size:14px;font-weight:500;line-height:1.7}
+.credit dd{font-size:12px;font-weight:400;line-height:1.7;padding-bottom:24px}
+
+/* 레퍼런스 pagination : 선 없음 · 오른쪽 정렬 · 위 줄 16/500 검정 · 아래 줄 14/400 에 오른쪽 20 */
+.prev{display:block;margin-top:96px;padding:0 16px 24px 0;text-align:right;font-size:12px;font-weight:400;line-height:1.7;color:var(--ink)}   /* 이름은 #212121 · 위 줄 링크만 검정 */
+.prev span{display:block;margin-right:-16px;font-size:14px;font-weight:500;line-height:1.7;color:#000}
+.prev:hover,.prev:hover span{color:#777}
+
+/* 폰판 · 레퍼런스의 max-width:1023px 블록을 그대로 옮김 */
+@media (max-width:1023px){
+  .wrap{max-width:608px;padding:0 24px 24px}   /* 608-48 = 560. 데스크톱과 같은 기둥 폭을 지킨다 */
+  /* ⛔ 글 폭을 100% 로 풀지 않는다 — 1023px 에서 한 줄이 975px 까지 늘어나 읽기 어려웠다(2026-09-22 실측). 800 가운데 유지 */
+  h1{margin-top:52px;font-size:28px;line-height:1.15;padding-bottom:24px}
+  .bg{font-size:15px;line-height:1.75;padding-bottom:12px}
+  .bg.en{font-size:13px;color:var(--ink3);padding-bottom:24px}
+  .facts,.credit{grid-template-columns:1fr}
+  .facts dt,.credit dt{font-size:14px}
+  .facts dd,.credit dd{font-size:13px;padding-bottom:17px}
+  .plate{margin-top:64px;padding:34px 24px}
+  .facts + .plate{margin-top:80px}
+  .plate + .plate{margin-top:14px}
+  .sec + .plate{margin-top:22px}
+  .facts + .sec{margin-top:76px}
+  .bg + .sec{margin-top:72px}
+  .bg + .plate{margin-top:36px}
+  .cap + .sec{margin-top:76px}
+  .plate.films,.plate.shot{padding:20px}
+  .plate.films .row{gap:8px}
+  .plate.shot .row{gap:10px}
+  .sec{margin-top:76px}
+  .plate + .sec{margin-top:76px}
+  .sec h2{font-size:20px;padding-bottom:14px}
+  .sec p{font-size:15px;line-height:1.75;padding-bottom:0}
+  .sec p + p:not(.en){margin-top:16px}
+  .sec p.en{font-size:13px;color:var(--ink3)}
+  .credit{margin-top:100px}
+  .credit dd{padding-bottom:20px}
+  .prev{margin-top:64px;padding-bottom:16px;font-size:13px}
+  .prev span{font-size:14px}
+}

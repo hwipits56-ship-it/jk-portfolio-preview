@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before &amp; After — 김재경</title>
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="case.css">
+<style>
+/* ============================================================
+   Before & After — 덩어리 쪽 (2026-09-22 · 토스 테크 결로 글을 다시 씀)
+     담당자가 확인하는 것 = 숫자를 보고 스스로 방향을 바꾼 적이 있나
+     절 셋 = 앱 전체의 흐름을 바꾼 것 · 한 앱의 화면과 구조를 바꾼 것 · 게임의 규칙을 바꾼 것
+     소제목은 컨셉 문장, 사실과 숫자는 본문에서만. 글 = drafts/v7-toss.md · 근거 = story/decisions.md
+     🆕 2026-09-23 : 본문을 toss.tech 글 문법으로. 해요체 · 첫 문단이 이야기를 예고 · 문단 끝이 다음 문단을 부른다
+        정본 = toss.tech/article/remittance_transfer. ⛔ 속마음·배운 점은 사용자가 말한 것만
+   🚨 낱말의 1% 와 21% 는 다른 자다. ⛔「1%가 21%가 됐다」로 쓰지 않는다
+   ============================================================ */
+.result{font-size:19px;font-weight:600;line-height:1.5;letter-spacing:-.03em;padding:0 0 28px}
+
+/* 끌어서 보는 전후 판 · 손잡이를 좌우로 끌면 전 화면이 후 화면으로 바뀐다 */
+.plate.ba{padding:44px}
+.ba .stage{position:relative;max-width:264px;margin:0 auto;cursor:ew-resize;touch-action:none;
+  box-shadow:0 6px 30px -18px rgba(0,0,0,.4), 0 0 0 .5px rgba(0,0,0,.06);border-radius:14px;overflow:hidden}
+.ba .stage img{width:100%;height:auto;display:block}
+.ba .stage img.a{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .bar{position:absolute;top:0;bottom:0;width:1px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.25)}
+.ba .knob{position:absolute;top:50%;left:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;
+  background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:#212121;font-weight:600}
+.ba .tags{display:flex;justify-content:space-between;max-width:264px;margin:14px auto 0;
+  font-size:11.5px;font-weight:500;color:var(--ink3);letter-spacing:normal}
+@media (max-width:1023px){
+  .result{font-size:18px;padding-bottom:16px}
+  .plate.ba{padding:20px}
+  .ba .stage,.ba .tags{max-width:240px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./">Home</a>
+  <a href="archive.html">Archive</a>
+  <a href="about.html">About</a>
+</nav>
+
+<div class="wrap">
+
+  <h1>Before &amp; After</h1>
+
+  <p class="result">낸 뒤에 잰 숫자로 다음 앱을 다시 설계하기</p>
+
+  <p class="bg">
+    앱을 낸 뒤에 잰 숫자가 다음 앱을 바꿨어요.
+    앱 전체의 흐름, 한 앱의 화면, 게임의 규칙. 이렇게 세 겹에서 무엇을 보고 무엇을 고쳤는지 이야기해 보려고 해요.
+  </p>
+
+
+  <div class="plate baked">
+    <img src="shots/plates/v8/ba-flow.webp" alt="6월 앱의 네 단계 흐름과 7월 뒤 앱의 한두 단계 흐름">
+  </div>
+  <p class="cap">위는 6월에 낸 부적의 네 단계, 아래는 7월 뒤에 낸 앱들의 흐름이에요</p>
+
+  <!-- ═══════ ① 앱 전체의 흐름 ═══════ -->
+  <section class="sec">
+    <h2>네 단계를 공들여 만든 첫 앱이 왜 무거웠을까?</h2>
+    <p>첫 앱 둘은 공을 많이 들였어요. 운을 고르고, 의식을 보고, 부적을 받고, 도감에 넣기까지 네댓 단계를 거쳤죠.</p>
+    <p>그런데 내고 나서 리텐션을 보니 뚜렷하게 남는 사람이 없었어요. 왜 그런지 정리해 보니 두 가지였어요.
+    하나는 서비스 크기에 비해 화면이 무거웠다는 것, 다른 하나는 친구에게 보낼 자리가 약했다는 거예요. 미니앱은 공유로 자라는데 말이죠.</p>
+    <p>그래서 7월부터는 흐름을 한두 단계로 줄이고, 공유를 가운데 뒀어요.
+    뒤로 갈수록 더 가볍게 갔고, 글 중심의 모노 여섯과 30초 에세이까지 왔어요.
+    앱 전체의 흐름을 줄이고 나니, 이번에는 한 앱 안을 들여다볼 차례였어요.</p>
+  </section>
+
+  <!-- ═══════ ② 한 앱의 화면과 구조 ═══════ -->
+  <section class="sec">
+    <h2>주문 0건인 결제 화면을 지우고 부적을 다시 그린 순서</h2>
+    <p>부적의 첫 판에는 홈, 운 뽑기, 상점, 구독까지 다 있었어요. 카드를 부채꼴로 펼치고, 그 아래 큰 보라 단추를 눌러 시작했죠.</p>
+    <p>그런데 결제 주문은 0건이었어요.</p>
+    <p>그래서 결제와 상점을 지우고 화면을 넷으로 줄였어요.
+    운을 옆으로 넘겨 고르고, 광고를 보고, 부적을 받으면, 도감에 쌓이는 흐름이에요. 지난 부적을 유료로 파는 기능도 검토했지만, 만들기 전에 계산으로 따져 보고 접었어요.</p>
+    <p>남은 건 도감이었어요. 끝까지 채울 수 있는지 직접 계산해 봤더니, 한 범주만 고르는 사람은 152장 가운데 38장에서 멈추더라고요.
+    그래서 그날 아침, 아직 안 가진 그림을 먼저 주도록 고쳤어요. 완주까지 걸리는 날이 164일에서 155일로 줄었어요.</p>
+    <p>같은 날 아침에는 지나간 부적을 주 1회 돌려주는 기능도 넣었어요.
+    그런데 저녁에 다시 계산해 보니, 뽑기 횟수에 제한이 없어 하루 네 장까지 받을 수 있었어요. 그 상태에서는 주 1회 회수가 완주를 하루도 앞당기지 못하더라고요.
+    그래서 그날 저녁에 되돌렸어요. 아래 커밋 기록에 그 하루가 그대로 남아 있어요.</p>
+  </section>
+
+  <div class="plate baked">
+    <img src="shots/plates/v8/ba-charm.webp" alt="부적의 첫 판과 지금 판을 나란히">
+  </div>
+  <p class="cap">위가 첫 판, 아래가 지금이에요. 잠긴 컨셉과 상점이 사라지고 화면이 넷으로 줄었어요. 세 앱을 기획한 이야기는 <a href="charm.html">부적</a>에 적었어요</p>
+
+  <div class="plate baked">
+    <img src="shots/plates/v8/ba-commits.webp" alt="그날 남긴 커밋 기록">
+  </div>
+  <p class="cap">도감이 막히는 걸 찾은 날의 커밋이에요. 계산과 뒤집은 판정이 같이 적혀 있어요</p>
+
+  <!-- ═══════ ③ 게임의 규칙 ═══════ -->
+  <section class="sec">
+    <h2>마지막 화면까지 가지 않던 사람을 데려온 네 가지</h2>
+    <p>낱말에서는 문제가 다른 곳에 있었어요. 사람들이 들어와서 판은 푸는데, 마지막 기록 화면까지 오는 사람이 적었거든요.
+    혜택탭 카드를 누르고 들어온 사람 가운데 정답까지 간 사람은 1%였어요.</p>
+    <p>처음에는 판이 어려워서라고 봤어요. 그래서 쉽게 만들었는데, 숫자가 움직이지 않았어요.</p>
+    <p>못 푸는 게 아니라, 끝까지 가는 길이 끊겨 있었어요.</p>
+    <p>힌트만 해도 오른쪽 위 작은 아이콘 하나뿐이라, 있는 줄도 모르고 나가기 쉬웠어요.
+    그래서 그 길을 끝까지 가게 하는 장치 넷을 손봤어요.
+    먼저 막히면 광고를 보고 한 칸을 여는 힌트를 판 바로 아래에 넣었어요.
+    시도는 일곱 번에서 다섯 번으로 줄이고, 도움말은 330자에서 58자로 깎아 난이도를 낮췄고요.
+    다음 판이 열리면 알려 주는 알림을 붙이고, 마지막 기록 화면도 다시 짰어요.</p>
+    <p>보상 금액과 카드 문구와 들어오는 길은 그대로 두고 앱만 바꿨어요.
+    그 뒤 여섯 주 동안, 같은 자로 다시 재니 정답까지 간 사람은 4.6%였어요. 8월 말과 9월로 나눠 봐도 둘 다 4%를 넘었고요.
+    아직 표본이 작아서, 이 숫자는 방향으로만 보고 있어요.</p>
+  </section>
+
+  <div class="plate baked">
+    <img src="shots/plates/v8/ba-naetmal.webp" alt="고치기 전과 고친 뒤의 한 판 흐름">
+  </div>
+  <p class="cap">위는 가야 하는 길, 아래는 그 길까지 데려오려고 손댄 넷이에요. 낱말 하나만 처음부터 끝까지 본 기록은 <a href="naetmal.html">낱말 케이스</a>에 적었어요</p>
+
+  <!-- ═══════ 맺음 · 2026-09-23 (근거 = story/decisions.md) ═══════ -->
+  <section class="sec">
+    <h2>고친 것보다 다시 잰 것</h2>
+    <p>세 번 모두, 처음 세운 진단이 그대로 맞지는 않았어요.
+    첫 앱은 공을 들였지만 남지 않았고, 낱말은 쉽게 만들어도 숫자가 움직이지 않았고, 부적의 회수 기능은 완주를 하루도 앞당기지 못했어요.</p>
+    <p>그래서 이제는 고치기 전에 먼저 재고, 고친 뒤에는 같은 자로 다시 재요.
+    낱말의 1%와 4.6%를 나란히 놓을 수 있는 것도, 금액과 문구와 들어오는 길을 그대로 둔 채 앱만 바꿨기 때문이에요.</p>
+  </section>
+
+  <!-- ═══════ 크레딧 ═══════ -->
+  <dl class="credit">
+    <dt>Planning · Design · Development</dt><dd>김재경</dd>
+    <dt>Output</dt><dd>앱 흐름 단순화 · 부적 화면과 도감 구조 수정 · 낱말 게임 규칙 재설계</dd>
+  </dl>
+
+  <a class="prev" href="howiship.html"><span>How I Ship</span>혼자 만드는 앱, 어디까지 자동화해도 될까?</a>
+
+</div>
+
+</body>
+</html>

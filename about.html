@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — 김재경</title>
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<style>
+/* ============================================================
+   ABOUT · 표 모양 (2026-09-23 · Info 를 합쳤다)
+   🆕 09-23 Info 를 이 쪽으로 합쳤다(사용자 요청). 순서 = 첫 문단 → Profile(연락·이력서·PDF, 담당자가 제일 먼저 찾는 것) →
+      How I Think → How I Work → Strengths → Timeline → Awards. info.html 은 이 쪽 #profile 로 넘겨 주는 빈 쪽만 남았다
+
+   쪽 제목 하나(110px) + 예고 문단 → 갈래 셋, 갈래마다 «이름표 | 내용» 두 칸 줄
+     How I Think   소제목 | 짧은 문단 여럿 + 영문 + 각주      × 3
+     How I Work    소제목 | 문단 한두 줄 + 점 목록 + 영문 + 각주 × 3
+     Strengths     소제목 | 문단 + 영문
+                   앱 · 시기 | 제목 ↗ + 요약 + 영문             × 4   ← 사례 줄
+                   소제목 | 문단 + 점 목록 + 영문
+
+   글은 토스 테크 문법(해요체 · 첫 문단은 예고 · 짧은 문단 여럿 · 핵심 한 문장은 따로) · portfolio-tone §2
+   🚨 선은 갈래 제목 위에 하나씩만. 줄 사이는 빈 거리로 가른다(라인 최소화)
+   🚨 같은 사실을 두 갈래에 쓰지 않는다. 숫자는 Strengths 에만
+   🚨 영문 문단은 «번역»이 아니라 «쉬는 구간»이다. 빼면 벽처럼 읽힌다
+   옛 판(Jay ABOUT 카피 · 한 칼럼 864)은 커밋 7b1e049 에 있다
+   ============================================================ */
+:root{
+  --paper:#fff; --ink:#212121; --ink3:#777; --ink4:#adadad;
+  --font:'Pretendard Variable',Pretendard,-apple-system,'Malgun Gothic',sans-serif;
+  --nav:43px;
+  --c1:220px; --c3:160px; --gap:48px;   /* 표(.tr)도 같은 첫 칸 폭을 써서 About 줄과 칸이 맞게 */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--font);
+  font-size:15px;font-weight:500;line-height:1.8;
+  word-break:keep-all;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  padding-top:var(--nav);
+}
+a{color:#000;text-decoration:none}
+a:hover{color:#777}
+::selection{background:var(--ink);color:var(--paper)}
+
+nav{
+  position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:20;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  background:var(--paper);border:1px solid #444;
+}
+nav a{display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:500;line-height:1.8;text-transform:uppercase;color:var(--ink)}
+nav a + a{border-left:1px solid #444}
+nav a:hover{color:#000}
+
+.wrap{width:min(1120px, calc(100% - 160px));margin-left:80px}
+
+h1{margin-top:105px;font-size:110px;font-weight:700;line-height:1.1}
+.lead{margin-top:40px;max-width:760px;font-size:18px;font-weight:600;line-height:1.7}
+.lead-en{margin-top:10px;max-width:760px;font-size:14px;font-weight:400;line-height:1.5;color:var(--ink3)}
+
+/* 갈래 제목 : 위에 선 하나 */
+.sec{margin-top:120px;padding-top:20px;border-top:1px solid var(--ink4);
+  font-size:32px;font-weight:700;line-height:1.3;padding-bottom:36px}
+.lead-en + .sec{margin-top:96px}
+
+/* 줄 = 이름표 | 내용 */
+.row{display:grid;grid-template-columns:var(--c1) minmax(0,1fr);column-gap:var(--gap);padding-bottom:56px}
+.row > h3{font-size:20px;font-weight:700;line-height:1.5}
+.row > h3 sup,.row sup{font-size:8px;vertical-align:super;padding-left:1px;font-weight:inherit}
+.row .k{font-size:14px;font-weight:500;line-height:1.9;color:var(--ink3);font-variant-numeric:tabular-nums}
+.body{max-width:760px}
+
+.t{font-size:15px;font-weight:500;line-height:1.8;color:var(--ink);padding-bottom:12px}
+ul{list-style:disc;padding-left:22px;margin:4px 0 16px}
+li{padding:0 0 4px 6px;font-size:15px;font-weight:500;line-height:1.7;color:var(--ink)}
+.en{font-size:14px;font-weight:400;line-height:1.5;color:var(--ink3);padding-bottom:12px}
+ul + .en{margin-top:8px}
+ul.en{margin-top:0}
+ul.en li{font-size:14px;font-weight:400;line-height:1.5;color:var(--ink3)}
+.fn{margin-top:12px}
+.fn p{font-size:13px;font-weight:400;line-height:1.7;color:var(--ink);padding-bottom:4px}
+.fn a{color:#000}
+
+/* 사례 줄 : 왼쪽 = 앱 · 시기, 오른쪽 = 제목 ↗ + 요약 (토스 글 목록 카드의 문법) */
+.case .ttl{display:block;font-size:20px;font-weight:700;line-height:1.5;padding-bottom:8px;color:var(--ink)}
+a.ttl:hover{color:#777}
+.case{padding-bottom:44px}
+
+/* ── 아래는 옛 info.html 에서 옮긴 표 ── */
+/* 표 한 줄 = 세 칸 */
+.tr{display:grid;grid-template-columns:var(--c1) minmax(0,1fr) var(--c3);column-gap:var(--gap);
+  padding:12px 0;align-items:baseline}
+.th{padding:0 0 8px;font-size:13px;font-weight:500;color:var(--ink3)}
+.tr .a{font-size:14px;font-weight:500;color:var(--ink3);font-variant-numeric:tabular-nums}
+.tr .b{font-size:16px;font-weight:600;line-height:1.6}
+.tr .b small{display:block;margin-top:2px;font-size:14px;font-weight:400;line-height:1.6;color:var(--ink3)}
+.tr .c{font-size:14px;font-weight:500;color:var(--ink3);text-align:right}
+.tr .c a{color:#000}
+.tr .c a:hover{color:#777}
+
+/* 프로필 : 카드 넷을 한 줄로 (09-23 사용자 요청 · 도표처럼). 수상·활동 카드와 같은 결.
+   카드 = 이름표 · 값(굵게) · 한 줄 설명 · 맨 아래 바로가기. 선 없이 회색 판으로 가른다 */
+.pf{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:12px}
+.pf .card{background:#f6f6f6;border-radius:14px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:6px;min-height:176px}
+.pf .k2{font-size:12px;font-weight:600;color:var(--ink3)}
+.pf .v{font-size:18px;font-weight:700;line-height:1.45;letter-spacing:-.01em;word-break:keep-all}
+.pf .v.mail{font-size:16px;word-break:break-all}
+.pf .sm{font-size:13px;font-weight:400;line-height:1.6;color:var(--ink3)}
+.pf .go{margin-top:auto;padding-top:14px;font-size:14px;font-weight:600;color:#000}
+.pf .go:hover{color:#777}
+
+/* 연표 : 해마다 한 덩어리. 왼쪽에 해(크게), 오른쪽에 달 · 내용 · 구분. 펼치지 않고 한눈에 (09-23 사용자 요청)
+   선은 쓰지 않는다. 해와 해 사이는 빈 거리로 가른다. 옛 펼침판(긴 문단)은 커밋 45c777f */
+.tl .yr{display:grid;grid-template-columns:var(--c1) minmax(0,1fr);column-gap:var(--gap);padding-bottom:40px}
+.tl .y{font-size:32px;font-weight:700;line-height:1.1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+  position:sticky;top:calc(var(--nav) + 24px);align-self:start}
+.tl ol{list-style:none}
+.tl li{display:grid;grid-template-columns:120px minmax(0,1fr) auto;column-gap:24px;align-items:baseline;padding:10px 0 14px}
+.tl .m{font-size:14px;font-weight:500;color:var(--ink3);font-variant-numeric:tabular-nums}
+.tl .w{font-size:16px;font-weight:600;line-height:1.55}
+.tl .w small{display:block;margin-top:2px;font-size:14px;font-weight:400;line-height:1.6;color:var(--ink3)}
+.tag{font-size:12px;font-weight:600;line-height:1;padding:6px 10px;border-radius:999px;background:#f1f1f1;color:#555;white-space:nowrap}
+.tag.on{background:var(--ink);color:#fff}   /* 경력·창업만 짙게 · 연표를 훑을 때 기둥이 먼저 보이게 */
+
+/* 수상·활동 : 카드 격자. 결과(우수상 등)를 굵게 */
+.aw{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.aw .card{background:#f6f6f6;border-radius:14px;padding:22px 22px 24px;display:flex;flex-direction:column;gap:6px}
+.aw .k2{font-size:12px;font-weight:600;color:var(--ink3)}
+.aw .nm{font-size:16px;font-weight:600;line-height:1.5}
+.aw .rs{font-size:15px;font-weight:700;color:var(--ink)}
+.aw .sm{font-size:13px;font-weight:400;line-height:1.6;color:var(--ink3)}
+
+footer{margin-top:64px;padding:0 0 80px;font-size:15px;font-weight:500;line-height:1.8;color:var(--ink)}
+footer p{display:inline;font:inherit;color:inherit}
+footer p + p::before{content:" · "}
+footer a{color:#000}
+
+/* 폰판 : 두 칸을 쌓는다 */
+@media (max-width:1023px){
+  .wrap{width:calc(100% - 48px);margin-left:24px}
+  h1{margin-top:45px;font-size:48px;font-weight:600}
+  .lead{margin-top:24px;font-size:16px}
+  .lead-en{font-size:13px}
+  .sec{margin-top:88px;font-size:22px;padding-bottom:20px}
+  .lead-en + .sec{margin-top:64px}
+  .row{grid-template-columns:1fr;row-gap:8px;padding-bottom:44px}
+  .row > h3{font-size:18px}
+  .row .k{font-size:13px}
+  .t,li{font-size:14px;line-height:1.7}
+  .en,ul.en li{font-size:13px}
+  .fn p{font-size:12px}
+  .case .ttl{font-size:18px}
+  .th{display:none}
+  .tr{grid-template-columns:1fr auto;column-gap:16px;row-gap:2px;padding:12px 0}
+  .tr .a{grid-column:1;grid-row:1;font-size:13px}
+  .tr .c{grid-column:2;grid-row:1;font-size:13px}
+  .tr .b{grid-column:1 / -1;grid-row:2;font-size:15px}
+  .tr .b small{font-size:13px}
+  .tl .yr{grid-template-columns:1fr;row-gap:8px;padding-bottom:28px}
+  .tl .y{position:static;font-size:24px}
+  .tl li{grid-template-columns:1fr auto;row-gap:2px;padding:10px 0}
+  .tl .m{grid-column:1;grid-row:1;font-size:13px}
+  .tl .tag{grid-column:2;grid-row:1}
+  .tl .w{grid-column:1 / -1;grid-row:2;font-size:15px}
+  .tl .w small{font-size:13px}
+  .pf{grid-template-columns:1fr 1fr;gap:8px}
+  .pf .card{padding:16px 16px 16px;min-height:0}
+  .pf .card:first-child,.pf .card:last-child{grid-column:1 / -1}   /* 소속 · 메일은 한 줄 통째, 이력서 · PDF 는 둘이 나란히 */
+  .pf .v{font-size:15px}
+  .pf .v.mail{font-size:14px}
+  .pf .go{padding-top:10px;font-size:13px}
+  .aw{grid-template-columns:1fr 1fr;gap:8px}
+  .aw .card{padding:16px 16px 18px}
+  .aw .nm{font-size:14px}
+  .aw .rs{font-size:14px}
+  footer{margin-top:40px;padding:0 0 40px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./">Home</a>
+  <a href="archive.html">Archive</a>
+  <a href="about.html" aria-current="page">About</a>
+</nav>
+
+<div class="wrap">
+
+<h1>About</h1>
+<!-- 토스 글 문법 · 첫 문단은 예고. 숫자를 늘어놓지 않고 글이 갈 곳을 먼저 말한다 -->
+<p class="lead">코드를 모르던 기획자가 혼자 앱 스물두 개를 내면서 굳어진 생각이 셋 있어요.
+그 생각으로 어떻게 일하는지, 그리고 그게 실제로 판단을 바꾼 일 넷을 이야기해 보려고 해요.</p>
+<p class="lead-en">Shipping twenty two apps alone, starting as a planner who could not code, left me with three convictions.
+Here is how I work because of them, and four cases where they changed a decision.</p>
+
+<!-- ══════════ Profile ══════════ -->
+<h2 class="sec" id="profile">Profile</h2>
+<!-- 09-23 사용자 요청: 기획 한 장 · 직무 인터뷰 덱 · 소속의 웹사이트를 뺐다. 옛 여섯 줄 표는 커밋 4ffe621 -->
+<div class="pf">
+  <div class="card"><span class="k2">소속</span><p class="v">1인 스튜디오 페탈리즘 대표</p><p class="sm">하루에 한 번 여는 작은 제품을 혼자 기획하고, 디자인하고, 개발해요. 만든 다음에는 직접 재서 고쳐요.</p></div>
+  <div class="card"><span class="k2">이력서</span><p class="v">2026년 9월 22일 갱신</p><a class="go" href="resume.html">보기 ↗</a></div>
+  <div class="card"><span class="k2">포트폴리오</span><p class="v">인쇄용 21쪽</p><p class="sm">이 사이트를 인쇄용으로 다시 짰어요</p><a class="go" href="deck/김재경_포트폴리오_2026.pdf">PDF ↓</a></div>
+  <div class="card"><span class="k2">메일</span><p class="v mail">inhyang000@naver.com</p><a class="go" href="mailto:inhyang000@naver.com">쓰기 ↗</a></div>
+</div>
+
+<!-- ══════════════════ How I Think : 가치 셋 ══════════════════ -->
+<h2 class="sec">How I Think</h2>
+
+<div class="row">
+  <h3>혼자서 끝까지</h3>
+  <div class="body">
+    <p class="t">제품이 사람에게 닿기까지는 기획, 디자인, 개발만으로 끝나지 않아요.
+    스토어 등록과 검수, 광고 배선, 알림, 정산<sup>1</sup>까지 이어져야 비로소 하나가 굴러가죠.</p>
+    <p class="t">저는 이 전부를 한 사람 안에서 끝내요.</p>
+    <p class="t">좋은 점은 넘기는 자리가 없다는 거예요. 무엇이 잘못되면 그 원인을 화면에서 코드로,
+    코드에서 광고 지면으로 끝까지 따라갈 수 있거든요. 그래서 이렇게 일할 수 있는 폭을 열어 주는 팀에 관심이 많아요.</p>
+    <p class="en">Getting a product in front of people does not end with planning, design and development.
+    Store registration, review, ad wiring, notifications and settlement all have to follow before a single
+    product actually runs. I do all of it myself. With no handoffs, when something breaks I can trace the cause
+    from the screen to the code and from the code to the ad placement.
+    I am very interested in teams that give me this range to work across.</p>
+    <div class="fn"><p>[1] 정산: 광고와 결제로 생긴 수익을 지면별로 확인하고 실제로 받기까지의 절차예요.</p></div>
+  </div>
+</div>
+
+<div class="row">
+  <h3>취향이 아닌 측정</h3>
+  <div class="body">
+    <p class="t">좋아 보인다는 이유로 정하면, 틀렸을 때 되돌릴 근거가 남지 않아요.
+    그래서 결정마다 무엇을 재고 정했는지 기록으로 남기고, 재지 않은 판단은 판단으로 치지 않아요.</p>
+    <p class="t">문제는 제 결론도 틀린다는 거예요.</p>
+    <p class="t">보상 금액과 클릭의 관계<sup>1</sup>는 두 번이나 잘못 읽었어요.
+    세 번째에 같은 조건으로 다시 재고 나서야 바로잡았죠. 결론을 다시 재는 일까지가 판단이라고 생각해요.</p>
+    <p class="en">If a decision rests on what looks good, nothing is left to reverse it with when it turns out
+    wrong. I record what I measured before each decision, and I do not count an unmeasured judgment as one.
+    The trouble is that my own conclusions can be wrong too. I misread the relationship between reward size and
+    clicks twice, and corrected it on the third attempt by measuring again under the same conditions.
+    A judgment is not finished until the conclusion has been measured again.</p>
+    <div class="fn"><p>[1] 보상 금액과 클릭: 혜택탭 보상을 열 배로 올렸을 때 클릭은 1.2배였어요. 금액은 누를지 말지를 거의 정하지 않아요.</p></div>
+  </div>
+</div>
+
+<div class="row">
+  <h3>같은 장르, 다른 규칙</h3>
+  <div class="body">
+    <p class="t">앱이 이미 수십 개 있는 장르<sup>1</sup>에 비슷한 걸 하나 더 내는 건 의미가 없어요.
+    그래서 그 장르가 당연하게 여기는 규칙을 하나 찾아, 그것만 바꿔요.</p>
+    <p class="t">운세는 맞히는 것이라는 규칙을 바꿔서 오늘 무엇을 하기 좋은 날인지 고르는 앱을 만들었어요.
+    스도쿠는 판을 푸는 것이라는 규칙을 바꿔서, 한 판이 이야기 한 조각을 여는 앱을 만들었고요.</p>
+    <p class="t">나머지는 건드리지 않아요. 한 번에 하나만 바꿔야 그게 통했는지 알 수 있거든요.</p>
+    <p class="en">There is no point adding one more of the same thing to a genre that already has dozens of apps.
+    Instead I find a single rule the genre takes for granted and change only that.
+    Fortune telling assumes you are told what will happen, so I built an app that instead picks what today is
+    a good day for. Sudoku assumes the point is to solve the grid, so I built one where each grid opens another
+    piece of a story. Everything else I leave alone, because only by changing one thing at a time can I tell
+    whether the change worked.</p>
+    <div class="fn"><p>[1] 장르: 사람들이 그 앱에 무엇을 기대할지가 이미 정해져 있는 묶음이에요.
+    운세, 스도쿠, 워들처럼 규칙이 굳어 있을수록 바꿀 자리가 뚜렷해요.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════ How I Work : 방법. 문단은 짧게, 점 목록이 주인공 ══════════════════ -->
+<h2 class="sec">How I Work</h2>
+
+<div class="row">
+  <h3>IC<sup>1</sup>로서 일하는 방식</h3>
+  <div class="body">
+    <p class="t">제품 하나를 문제 정의부터 출시와 운영까지 혼자 끝내요.
+    넘겨받을 사람이 없으니 판단의 근거도 제가 남겨야 하죠. 그래서 이렇게 일해요.</p>
+    <ul>
+      <li>기획, 화면, 코드, 스토어 등록, 광고 배선을 한 흐름으로 이어요.</li>
+      <li>재는 장치<sup>2</sup>를 제품 안에 먼저 넣고 나서 사람 앞에 둬요.</li>
+      <li>잰 값이 예상과 다르면 화면보다 문제 정의를 먼저 고쳐요.</li>
+      <li>게임 회사에서는 신규 MMORPG 콘텐츠 기획을 맡아, 아트 발주서<sup>3</sup>로 여러 직군을 한 빌드에 모았어요.</li>
+    </ul>
+    <p class="en">I take a product from problem definition through launch and operation on my own.
+    With no one to hand the work to, I leave the reasoning behind each judgment myself. So this is how I work.</p>
+    <ul class="en">
+      <li>Planning, screens, code, store registration and ad wiring run as one flow.</li>
+      <li>The measuring instrument goes into the product first, then the product goes in front of people.</li>
+      <li>When the number differs from what I expected, I rewrite the problem definition before the screen.</li>
+      <li>At a game studio I planned content for a new MMORPG and used art requirement documents to bring several disciplines into one build.</li>
+    </ul>
+    <div class="fn">
+      <p>[1] IC: Individual Contributor 의 줄임말이에요. 조직에서 자기 전문 역량으로 직접 문제를 푸는 사람을 말해요.</p>
+      <p>[2] 재는 장치: 퍼널, 완주율, 리텐션 같은 지표를 직접 정하고 제품 안에서 기록하는 코드예요.</p>
+      <p>[3] 아트 발주서: 그림, 모델, 이펙트를 만들 때 필요한 조건을 적어 아트 직군에 넘기는 요구사항 문서예요.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <h3>운영자로서 일하는 방식</h3>
+  <div class="body">
+    <p class="t">낸 제품이 계속 돌아가게 하는 일도 제 몫이에요.
+    광고, 프로모션, 알림, 출시를 저마다 따로 재고 나눠 볼 수 있게 설계해요.</p>
+    <ul>
+      <li>광고는 형식과 지면을 지표로 보고 배치해요. 단가가 낮은 배너는 쓰지 않아요.</li>
+      <li>프로모션은 하나씩 시작해 표본이 섞이지 않게 하고, 알림은 좁은 대상<sup>1</sup>에게 보내 나눠 봐요.</li>
+      <li>출시와 검수를 절차로 만들어 같은 실수가 되풀이되지 않게 해요.</li>
+      <li>매일 도는 수집과 검사<sup>2</sup>로 숫자를 믿을 수 있게 지켜요.</li>
+    </ul>
+    <p class="en">Keeping the products I have shipped running is my job too.
+    Ads, promotions, notifications and releases are each designed in units that can be measured and read apart.</p>
+    <ul class="en">
+      <li>Place ads by format and placement, judged on measured performance, and skip low-rate banners.</li>
+      <li>Start promotions one at a time to keep samples clean, and send notifications to narrow audiences.</li>
+      <li>Turn release and review into a procedure so the same mistake does not repeat.</li>
+      <li>Keep numbers trustworthy with a daily collection and verification pipeline.</li>
+    </ul>
+    <div class="fn">
+      <p>[1] 대상: 알림 받을 사람을 나이, 관심사, 이용 이력 같은 조건으로 좁혀 묶은 거예요.</p>
+      <p>[2] 수집과 검사: 콘솔에서 숫자를 받아 오고, 검사하고, 화면에 채우는 일을 매일 자동으로 잇는 프로그램이에요.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <h3>도구를 다루는 방식</h3>
+  <div class="body">
+    <p class="t">화면은 코드로 먼저 그려요. 그래서 하루 중 가장 긴 시간을 Claude Code<sup>1</sup>에서 보내죠.</p>
+    <ul>
+      <li>기획 메모, 코드, 화면 확인, 숫자 수집을 한 흐름으로 이어요.</li>
+      <li>숨은 브라우저로 화면을 찍어 요소 사이 거리를 픽셀로 재고 고쳐요.</li>
+      <li>새 앱은 손으로 복사하지 않고 찍어내는 도구<sup>2</sup>로 만들어서 빠뜨리는 걸 없애요.</li>
+      <li>Figma는 기본 기능을 다루는 수준이에요. 코드로 먼저 그리다 보니 아직 채워야 할 몫으로 남아 있어요.</li>
+    </ul>
+    <p class="en">Screens are drawn in code first, which is why the longest part of any day is spent in Claude Code.</p>
+    <ul class="en">
+      <li>Planning notes, code, visual checks and data collection run as one flow.</li>
+      <li>A headless browser captures the screen so distances between elements can be measured in pixels.</li>
+      <li>New apps come from a generator, so nothing is left out by hand.</li>
+      <li>Figma is at a basic level. Because screens begin in code, it remains a gap to fill.</li>
+    </ul>
+    <div class="fn">
+      <p>[1] Claude Code: 명령줄에서 쓰는 AI 도구예요. 코드를 쓰고 고치고, 브라우저와 콘솔 같은 바깥 도구를 대신 불러요.</p>
+      <p>[2] 찍어내기 도구: 이름과 포트와 강조색을 넣으면 새 앱 폴더를 만들고 바꿔야 할 자리를 전부 갈아 끼우는 스크립트예요. 대상 폴더가 이미 있으면 멈춰요. <a href="system.html">공용 부품 케이스 ↗</a></p>
+      <p>[3] 쓰는 것: Claude Code · React · Vite · CSS · anime.js · GSAP · Supabase · Vercel · Python · Figma · Unreal Engine 5 · Unity</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ Strengths : 증거. 숫자는 이야기 속 사실로 ══════════════════ -->
+<h2 class="sec">Strengths</h2>
+
+<div class="row">
+  <h3>IC로서의 강점</h3>
+  <div class="body">
+    <p class="t">90일 동안 앱 스물두 개를 기획부터 출시와 운영까지 혼자 맡아 서비스에 올렸어요.
+    처음 시장에 내놓는 단계를 스물두 번 거치면서, 무엇이 되고 무엇이 안 되는지를 숫자로 확인했죠.</p>
+    <p class="t">다음에 무엇을 만들지는 장르와 사용자층을 격자로 놓고 정했어요. 앞의 앱이 뒤의 앱을 밀어 주게요.</p>
+    <p class="t">그중 판단이 가장 크게 바뀐 일 넷을 골랐어요.</p>
+    <p class="en">In ninety days I took twenty two apps from planning through launch and operation on my own,
+    going through the zero to one stage twenty two times and checking with numbers what worked.
+    Genres and audiences sit on a grid that decides what comes next, so each app pushes the ones that follow.
+    The four below are where my judgment changed the most.</p>
+  </div>
+</div>
+
+<div class="row case">
+  <p class="k">낱말<br>2026.07</p>
+  <div class="body">
+    <a class="ttl" href="naetmal.html">이기게가 아니라 끝나게 ↗</a>
+    <p class="t">혜택탭에서 들어와 정답까지 간 사람이 1.0%뿐이었어요. 어려워서 떠난 줄 알았는데,
+    단계별로 다시 재 보니 틀려서가 아니라 끝내지 않은 채 앱을 닫고 있더라고요.
+    목표를 다시 정한 뒤 같은 자로 재니 4.6%였고, 여섯 주 내내 4% 위를 지켰어요.</p>
+    <p class="en">Only 1.0% of people arriving from the benefits tab reached the answer. It looked like the
+    board was too hard, but measuring each step showed they were closing the app without finishing, not failing.
+    After redefining the goal, the same measure reads 4.6% and has stayed above 4% for six weeks.</p>
+  </div>
+</div>
+
+<div class="row case">
+  <p class="k">미니앱 성과 대시보드<br>2026.08</p>
+  <div class="body">
+    <a class="ttl" href="dashboard.html">지표가 아닌 지금 걸린 것 ↗</a>
+    <p class="t">앱이 늘자 콘솔만 봐서는 지금 무엇이 걸렸는지 알 수 없었어요.
+    그래서 맨 위 칸을 지표 대신 손이 필요한 것으로 채웠죠.
+    그 말이 틀리지 않게 검사 11종을 세웠고, 틀린 칸은 14개에서 0개가 됐어요.</p>
+    <p class="en">As the apps multiplied, the console alone no longer said what needed attention.
+    The top panel now lists what is stuck instead of metrics, and eleven checks keep that list honest.
+    Wrong cells went from fourteen to zero.</p>
+  </div>
+</div>
+
+<div class="row case">
+  <p class="k">페탈리즘 공용 부품<br>2026.08</p>
+  <div class="body">
+    <a class="ttl" href="system.html">짐작이 아닌 빌드 ↗</a>
+    <p class="t">여러 앱이 함께 쓸 부품을 두 벌로 빌드해 쟀더니, 차이는 화면 수와 상관없이 34~35KB였어요.
+    그런데 재다 보니 측정 없이 내렸던 옛 판정이 틀려 있었어요.
+    그 판정 때문에 여러 앱이 필요 없는 14KB를 지고 다니고 있었죠.</p>
+    <p class="en">I built both candidate stacks for the shared components and measured them. The gap stayed at
+    34 to 35KB however many screens were added. Along the way I found that an earlier verdict made without
+    measuring was wrong, and reversed it. Several apps had been carrying an unnecessary 14KB because of it.</p>
+  </div>
+</div>
+
+<div class="row case">
+  <p class="k">프로모션 지급 사고<br>2026.08</p>
+  <div class="body">
+    <span class="ttl">사고를 규칙으로</span>
+    <p class="t">프로모션 코드를 새것으로 바꾸면서 옛것을 끄지 않았어요.
+    혜택탭에서 참여한 40명이 보상을 받지 못했는데, 화면도 숫자도 멀쩡해 보여서 한동안 몰랐죠.
+    지금은 옛 코드를 먼저 끄는 절차와, 참여는 있는데 지급이 0인 프로모션을 매일 걸러 내는 검사가 돌아요.</p>
+    <p class="en">When I replaced a promotion code I left the old one on, and forty people who joined from the
+    benefits tab were never paid. The screens and numbers looked normal, so it went unnoticed for a while. Now a
+    procedure turns the old code off first, and a daily check flags any promotion with participants but zero payouts.</p>
+  </div>
+</div>
+
+<div class="row">
+  <h3>운영자로서의 강점</h3>
+  <div class="body">
+    <p class="t">만든 걸 계속 돌아가게 하는 일이 제 강점이에요.</p>
+    <p class="t">승인만 받고 실제로는 나가지 않은 판이 없는지 전수로 대조한 적이 있어요.
+    앱 14개 가운데 8개가 최신 판을 사용자에게 내보내지 못하고 있었어요.
+    그중 하나는 화면이 열리지 않는 판이 15일째 서비스되고 있었고요.</p>
+    <p class="t">만드는 일과 파는 일은 나누지 않아요. 광고와 정산까지 제품의 일부로 함께 설계해요.</p>
+    <ul>
+      <li>수익이 나는 구조를 지면과 형식 단위로 설계하고 운영해요.</li>
+      <li>실제로 굴러가는 수집과 검사 절차를 만들어 숫자를 믿을 수 있게 지켜요.</li>
+      <li>출시와 검수를 전수로 대조해 나가지 않은 판을 남기지 않아요.</li>
+      <li>제품을 늘릴수록 손이 덜 들도록 도구를 먼저 만들어요.</li>
+    </ul>
+    <p class="en">Keeping what I have built running is a strength. Reconciling releases app by app, I found that
+    eight of fourteen apps did not have their latest build in front of users, and one had been serving a build
+    whose screens would not open for fifteen days. I do not separate building from selling, and I design ads and
+    settlement as part of the product.</p>
+    <ul class="en">
+      <li>Design and operate the revenue structure at the level of placement and format.</li>
+      <li>Build collection and verification that actually run, and keep the numbers trustworthy.</li>
+      <li>Reconcile every release so no approved build is left unshipped.</li>
+      <li>Build the tooling first, so that adding products costs less each time.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════ Timeline ══════════ -->
+<h2 class="sec" id="timeline">Timeline</h2>
+<div class="tl">
+  <div class="yr"><p class="y">2026</p><ol>
+    <li><span class="m">09</span><span class="w">30초 에세이 출시, 서비스 중인 앱 스물두 개<small>하루 한 편 글과 과일 부적</small></span><span class="tag">출시</span></li>
+    <li><span class="m">09</span><span class="w">하루 질문, 날씨와 문장 출시<small>물음 하나를 네 곳에 나눠 담기 · 날씨를 한 문장으로 읽기</small></span><span class="tag">출시</span></li>
+    <li><span class="m">09</span><span class="w">오늘의 꽃갈피 출시<small>하루 한 송이 꽃과 꽃말 · 아침 아홉 시 알림</small></span><span class="tag">출시</span></li>
+    <li><span class="m">08</span><span class="w">미니앱 성과 대시보드<small>맨 위 칸은 지표가 아니라 지금 걸린 것 · 검사 11종</small></span><span class="tag">도구</span></li>
+    <li><span class="m">08</span><span class="w">직장인부적 95 검수 통과<small>윈도우 95의 문법 · 부적 47종</small></span><span class="tag">출시</span></li>
+    <li><span class="m">07</span><span class="w">낱말 출시, 첫 완주율 측정<small>자모를 맞추는 하루 한 판 게임 · 완주율 1%</small></span><span class="tag">출시</span></li>
+    <li><span class="m">06</span><span class="w">첫 미니앱 둘 출시<small>오늘의 부적 · 묘한 소원</small></span><span class="tag">출시</span></li>
+    <li><span class="m">05</span><span class="w">페탈리즘 설립<small>모바일 제품을 만드는 1인 스튜디오</small></span><span class="tag on">창업</span></li>
+  </ol></div>
+  <div class="yr"><p class="y">2025</p><ol>
+    <li><span class="m">03 ~ 2026.03</span><span class="w">매드엔진 신규 MMORPG 콘텐츠 기획<small>퀘스트 시스템 · 컷신 · 세계관 · 아트 발주서</small></span><span class="tag on">경력</span></li>
+  </ol></div>
+  <div class="yr"><p class="y">2024</p><ol>
+    <li><span class="m">11</span><span class="w">IWILLLAND 졸업작품상<small>아동용 스케줄러 · 설문 52명 · 5인 팀 기획과 PM</small></span><span class="tag">프로젝트</span></li>
+    <li><span class="m">09</span><span class="w">한국관광공사 실감관광콘텐츠 공모전 우수상<small>야간 미디어파사드 코스 · Midjourney · Runway</small></span><span class="tag">수상</span></li>
+  </ol></div>
+  <div class="yr"><p class="y">2023</p><ol>
+    <li><span class="m">04 ~ 2024.12</span><span class="w">방치형 게임 「우리 집에 정령이 산다」<small>7인 팀 기획과 PM · 핵심 유저 7명 인터뷰</small></span><span class="tag">프로젝트</span></li>
+    <li><span class="m">04 ~ 2023.09</span><span class="w">LG생활건강 산학협력 프로젝트<small>13인 팀 기획과 PM</small></span><span class="tag">프로젝트</span></li>
+  </ol></div>
+</div>
+
+<!-- ══════════ Awards & Activities · 카드 격자 ══════════ -->
+<h2 class="sec" id="awards">Awards &amp; Activities</h2>
+<div class="aw">
+  <div class="card"><span class="k2">수상</span><p class="nm">한국관광공사 실감관광콘텐츠 공모전</p><p class="rs">우수상</p></div>
+  <div class="card"><span class="k2">수상</span><p class="nm">건국대학교 창업 퍼실리테이팅</p><p class="rs">우수상</p></div>
+  <div class="card"><span class="k2">수상</span><p class="nm">IWILLLAND · 문화콘텐츠학과</p><p class="rs">최우수 졸업작품상</p></div>
+  <div class="card"><span class="k2">선정</span><p class="nm">네이버 인플루언서</p><p class="rs">도서 부문</p></div>
+  <div class="card"><span class="k2">선정</span><p class="nm">러닝앤쉐어링</p><p class="rs">문화 부문</p></div>
+  <div class="card"><span class="k2">활동</span><p class="nm">건국대학교 게임제작 소모임</p><p class="rs">회장</p><p class="sm">기획 스터디 운영 · 팀 프로젝트 3종</p></div>
+  <div class="card"><span class="k2">활동</span><p class="nm">전국대학연합 게임제작동아리 UNIDEV</p></div>
+  <div class="card"><span class="k2">활동</span><p class="nm">창업동아리 SQUAD</p><p class="rs">13기</p></div>
+  <div class="card"><span class="k2">학력</span><p class="nm">건국대학교 문화콘텐츠학과 · 철학과 복수전공</p><p class="rs">4.4 / 4.5</p><p class="sm">성적우수자상 5회</p></div>
+</div>
+
+<footer>
+  <p>김재경 · Product Engineer</p>
+  <p>
+    <a href="mailto:inhyang000@naver.com">inhyang000@naver.com</a> ·
+    <a href="deck/김재경_포트폴리오_2026.pdf">PDF</a> ·
+    <a href="resume.html">이력서</a>
+  </p>
+</footer>
+
+</div>
+</body>
+</html>
