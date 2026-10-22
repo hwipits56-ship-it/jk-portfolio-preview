@@ -2639,4 +2639,8 @@ startLevel();
 intro();
 try { history.pushState({ v: "v-game" }, ""); } catch {}
 </script>
-<script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});</script></body></html>
+<script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+/* 미리보기 전용: 브라우저 탭에서 열었을 때 첫 터치에 전체 화면으로 (주소창·탭 숨김). 홈 화면 앱으로 열렸으면 그대로 */
+(function () { var standalone = matchMedia("(display-mode: standalone), (display-mode: fullscreen)").matches; if (standalone) return;
+  var go = function () { var el = document.documentElement, fn = el.requestFullscreen || el.webkitRequestFullscreen; if (fn && !document.fullscreenElement) { try { var r = fn.call(el, { navigationUI: "hide" }); r && r.catch && r.catch(function () {}); } catch (e) {} } };
+  document.addEventListener("pointerup", go, true); })();</script></body></html>
