@@ -1,4 +1,4 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><title>워드 커넥션</title></head><body>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" type="image/png" href="icon-192.png"><title>워드 커넥션</title></head><body>
 <title>워드 커넥션</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&text=Word%20Connection&display=swap">
 <style>
@@ -2693,4 +2693,12 @@ try { history.pushState({ v: "v-game" }, ""); } catch {}
 /* 미리보기 전용: 브라우저 탭에서 열었을 때 첫 터치에 전체 화면으로 (주소창·탭 숨김). 홈 화면 앱으로 열렸으면 그대로 */
 (function () { var standalone = matchMedia("(display-mode: standalone), (display-mode: fullscreen)").matches; if (standalone) return;
   var go = function () { var el = document.documentElement, fn = el.requestFullscreen || el.webkitRequestFullscreen; if (fn && !document.fullscreenElement) { try { var r = fn.call(el, { navigationUI: "hide" }); r && r.catch && r.catch(function () {}); } catch (e) {} } };
-  document.addEventListener("pointerup", go, true); })();</script></body></html>
+  document.addEventListener("pointerup", go, true); })();
+/* 미리보기 전용: 크롬이 설치 가능하다고 알려 주면 왼쪽 아래에 작은 [앱으로 설치] 버튼 */
+(function () { var ev = null, btn = document.createElement("button");
+  btn.textContent = "앱으로 설치"; btn.hidden = true;
+  btn.style.cssText = "position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:9999;height:40px;padding:0 16px;border-radius:999px;border:0;background:#3a3a3a;color:#fff;font:600 14px/1 sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.18)";
+  document.body.appendChild(btn);
+  addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); ev = e; btn.hidden = false; });
+  btn.addEventListener("click", function (e) { e.stopPropagation(); if (!ev) return; ev.prompt(); ev.userChoice.finally(function () { ev = null; btn.hidden = true; }); }, true);
+  addEventListener("appinstalled", function () { btn.hidden = true; }); })();</script></body></html>
